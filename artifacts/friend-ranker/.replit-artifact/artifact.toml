@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Secret Spectrum"
+description = "A team party game where one representative secretly ranks words for their own team, and that same team reverse-engineers the ranking to guess the hidden adjective and surprise word."
+version = "1.0.0"
+id = "artifacts/friend-ranker"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18155
+
+[services.development]
+run = "pnpm --filter @workspace/friend-ranker run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/friend-ranker", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/friend-ranker/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18155"
+BASE_PATH = "/"

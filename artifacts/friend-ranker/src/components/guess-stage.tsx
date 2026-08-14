@@ -32,7 +32,7 @@ export function GuessStage({
           <li className="flex gap-2"><span className="font-display font-bold text-primary">2.</span>Pick which adjective your representative used as the secret axis.</li>
         </ol>
       </div>
-      <RankBoard items={order} onReorder={onReorder} lowLabel="least" highLabel="most" movableId={eighthWord} highlightId={eighthWord} />
+      <RankBoard items={order} onReorder={onReorder} topLabel="most" bottomLabel="least" movableId={eighthWord} highlightId={eighthWord} />
       <div className="mt-8">
         <h3 className="mb-3 font-display text-lg font-bold">Which adjective was it?</h3>
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">

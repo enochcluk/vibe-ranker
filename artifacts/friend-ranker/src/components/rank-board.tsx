@@ -22,15 +22,15 @@ import { cn } from "@/lib/utils"
 export function RankBoard({
   items,
   onReorder,
-  lowLabel,
-  highLabel,
+  topLabel,
+  bottomLabel,
   movableId,
   highlightId,
 }: {
   items: string[]
   onReorder: (next: string[]) => void
-  lowLabel: string
-  highLabel: string
+  topLabel: string
+  bottomLabel: string
   movableId?: string
   highlightId?: string
 }) {
@@ -50,9 +50,9 @@ export function RankBoard({
 
   return (
     <div className="flex gap-3 sm:gap-4">
-      <div className="flex w-8 shrink-0 flex-col items-center sm:w-10"><span className="mb-2 text-center text-[10px] font-semibold uppercase tracking-wider text-muted-foreground sm:text-xs">least</span><div className="w-2.5 flex-1 rounded-full sm:w-3" style={{ background: "var(--spectrum)" }} aria-hidden="true" /><span className="mt-2 text-center text-[10px] font-semibold uppercase tracking-wider text-muted-foreground sm:text-xs">most</span></div>
+      <div className="flex w-8 shrink-0 flex-col items-center sm:w-10"><span className="mb-2 text-center text-[10px] font-semibold uppercase tracking-wider text-muted-foreground sm:text-xs">most</span><div className="w-2.5 flex-1 rounded-full sm:w-3" style={{ background: "var(--spectrum)" }} aria-hidden="true" /><span className="mt-2 text-center text-[10px] font-semibold uppercase tracking-wider text-muted-foreground sm:text-xs">least</span></div>
       <div className="flex-1">
-        <div className="mb-2 flex items-baseline justify-between gap-2 text-xs text-muted-foreground"><span className="truncate">{lowLabel}</span><span className="truncate text-right">{highLabel}</span></div>
+        <div className="mb-2 flex items-baseline justify-between gap-2 text-xs text-muted-foreground"><span className="truncate">{topLabel}</span><span className="truncate text-right">{bottomLabel}</span></div>
         <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
           <SortableContext items={items} strategy={verticalListSortingStrategy}>
             <ul className="flex flex-col gap-2">{items.map((word, index) => <SortableRow key={word} id={word} index={index} draggable={!movableId || word === movableId} highlighted={highlightId === word} />)}</ul>

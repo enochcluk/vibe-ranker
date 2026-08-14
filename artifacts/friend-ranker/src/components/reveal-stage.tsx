@@ -66,7 +66,7 @@ export function RevealStage({
 
       <div className="mt-6">
         <h3 className="mb-1 font-display text-lg font-bold">The representative&apos;s true ranking</h3>
-        <p className="mb-3 text-sm text-muted-foreground">least <span className="lowercase text-foreground">{adjective}</span> → most <span className="lowercase text-foreground">{adjective}</span></p>
+        <p className="mb-3 text-sm text-muted-foreground">most <span className="lowercase text-foreground">{adjective}</span> → least <span className="lowercase text-foreground">{adjective}</span></p>
         <ol className="flex flex-col gap-2">
           {trueOrder.map((word, index) => {
             const isEighth = word === eighthWord
